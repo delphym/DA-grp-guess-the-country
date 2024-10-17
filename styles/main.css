@@ -60,8 +60,8 @@ footer {
   font-style: oblique;
 }
 footer img {
-  height: 7rem;
-  width: auto;
+  height: auto;
+  width: 9rem;
   padding-right: 30px;
   border: #f05d23;
   border-width: 15px;
