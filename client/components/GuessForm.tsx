@@ -16,8 +16,8 @@ function GuessForm({ handleCountryName }: Props) {
 
   //watch from 24:00 https://youtu.be/MSBY9Myl0tw?si=2lRS7oQlxvFTuF1-&t=1443
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    handleCountryName(inputValue)
     event.preventDefault()
+    handleCountryName(inputValue)
     setInputValue('')
   }
 

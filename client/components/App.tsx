@@ -28,7 +28,7 @@ function App() {
       <main>
         <h1>Guess the Country</h1>
         <p>React development has begun!</p>
-        {/* <Score/> */}
+        
         <ul>
           <li>
             <a href="/">Home</a>
@@ -42,6 +42,7 @@ function App() {
             <a href="#credit">Credit</a>
           </li>
         </ul>
+            <Score score={1} countryName={"New Zealand"} countryCode={"NZ"} />
         <GuessForm handleCountryName={handleCountryName}/>
       </main>
       <footer id="credit">
