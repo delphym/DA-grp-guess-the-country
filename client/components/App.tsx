@@ -3,14 +3,24 @@ import Nav from './Nav'
 import Game from './Game'
 import GuessForm from './GuessForm'
 import Flag from './Flag'
+import Score from './Score'
 
 function App() {
   const [showImg, setShowImg] = useState(false)
+  const [countryName, setCountryName] = useState('')
+  // const [countryCode, setCountryCode] = useState('')
+
 
   const handleShowImg = () => {
     setShowImg(!showImg)
   }
 
+  const handleCountryName = (countryName: string) => {
+    
+    setCountryName(countryName)
+  }
+  console.log("passed country:", countryName) 
+  
   return (
     <div>
       <Nav />
@@ -18,6 +28,7 @@ function App() {
       <main>
         <h1>Guess the Country</h1>
         <p>React development has begun!</p>
+        {/* <Score/> */}
         <ul>
           <li>
             <a href="/">Home</a>
@@ -31,7 +42,7 @@ function App() {
             <a href="#credit">Credit</a>
           </li>
         </ul>
-        <GuessForm />
+        <GuessForm handleCountryName={handleCountryName}/>
       </main>
       <footer id="credit">
         This game is proudly <b>Brought to You by The-A-Team</b>!
