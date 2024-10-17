@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Nav from './Nav'
+import Game from './Game'
 import GuessForm from './GuessForm'
 import Flag from './Flag'
 
