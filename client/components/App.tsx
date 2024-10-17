@@ -4,23 +4,17 @@ import Game from './Game'
 import GuessForm from './GuessForm'
 import Flag from './Flag'
 import Score from './Score'
+import Footer from './Footer'
 
 function App() {
-  const [showImg, setShowImg] = useState(false)
   const [countryName, setCountryName] = useState('')
   // const [countryCode, setCountryCode] = useState('')
 
-
-  const handleShowImg = () => {
-    setShowImg(!showImg)
-  }
-
   const handleCountryName = (countryName: string) => {
-    
     setCountryName(countryName)
   }
-  console.log("passed country:", countryName) 
-  
+  console.log('passed country:', countryName)
+
   return (
     <div>
       <Nav />
@@ -28,7 +22,7 @@ function App() {
       <main>
         <h1>Guess the Country</h1>
         <p>React development has begun!</p>
-        
+
         <ul>
           <li>
             <a href="/">Home</a>
@@ -42,17 +36,11 @@ function App() {
             <a href="#credit">Credit</a>
           </li>
         </ul>
-            <Score score={1} countryName={"New Zealand"} countryCode={"NZ"} />
-        <GuessForm handleCountryName={handleCountryName}/>
+        <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
+        <GuessForm handleCountryName={handleCountryName} />
       </main>
       <footer id="credit">
-        This game is proudly <b>Brought to You by The-A-Team</b>!
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <button onClick={handleShowImg}>
-            {showImg ? 'Hide Img' : 'The A Team'}
-          </button>
-          {showImg && <img src="/images/a-team-smile.gif" alt="The-A-Team" />}
-        </div>
+        <Footer />
       </footer>
     </div>
   )
