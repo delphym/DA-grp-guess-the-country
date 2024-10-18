@@ -14,6 +14,7 @@ const formstyle = {
   };
 interface Props {
   handleCountryName: (newCountry: string) => void
+  // handleCountryCode: (newCode: string) => void
 }
 
 function GuessForm({ handleCountryName }: Props) {

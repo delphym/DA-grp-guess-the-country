@@ -1,15 +1,25 @@
 import { useState } from 'react'
 import Nav from './Nav'
+import Main from './Main'
 import Game from './Game'
+<!-- <<<<<<< gamebutton-layout
 // import GuessForm from './GuessForm'
 // import Flag from './Flag'
+=======
+import GuessForm from './GuessForm'
+import Flag from './Flag'
+import Score from './Score'
+import Footer from './Footer'
+// >>>>>>> main -->
 
 function App() {
-  const [showImg, setShowImg] = useState(false)
+  const [countryName, setCountryName] = useState('')
+  // const [countryCode, setCountryCode] = useState('')
 
-  const handleShowImg = () => {
-    setShowImg(!showImg)
+  const handleCountryName = (countryName: string) => {
+    setCountryName(countryName)
   }
+  console.log('passed country:', countryName)
 
   const [showGame, setShowGame] = useState(false); // State to manage Game component visibility
 
@@ -23,6 +33,7 @@ console.log(showGame);
       <Nav />
 
       <main>
+<!-- <<<<<<< gamebutton-layout -->
         <h1>Guess the Country</h1>
         {/* <p>React development has begun!</p> */}
         <ul>
@@ -45,11 +56,7 @@ console.log(showGame);
             <button id="gamebtn" onClick={handleShowGame}>
               {showGame ? 'Hide Game' : 'Show Game'}
             </button>
-            {/* <button>
-              <li>
-                <a href="/Game">Play</a>
-              </li> */}
-            {/* </button> */}
+            
           </li>
         </ul>
         <ul>
@@ -61,15 +68,14 @@ console.log(showGame);
         </ul>
         {/* <GuessForm/> */}
         {showGame && <Game />}
+<!-- ======= -->
+        <Main />
+        <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
+        <GuessForm handleCountryName={handleCountryName} />
+<!-- >>>>>>> main -->
       </main>
       <footer id="credit">
-        This game is proudly <b>Brought to You by The-A-Team</b>!
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <button onClick={handleShowImg}>
-            {showImg ? 'Hide Img' : 'The A Team'}
-          </button>
-          {showImg && <img src="/images/a-team-smile.gif" alt="The-A-Team" />}
-        </div>
+        <Footer />
       </footer>
     </div>
   )
