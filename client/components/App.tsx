@@ -68,7 +68,11 @@ function App() {
         {showGame && <Game />}
 
         <Main />
-        <Flag handleFlag={handleFlag} />
+        <Flag
+          handleFlag={() => {
+            handleFlag
+          }}
+        />
         <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
         <GuessForm handleCountryName={handleCountryName} />
       </main>
