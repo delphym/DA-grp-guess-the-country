@@ -2,10 +2,6 @@ import { useState } from 'react'
 import Nav from './Nav'
 import Main from './Main'
 import Game from './Game'
-<!-- <<<<<<< gamebutton-layout
-// import GuessForm from './GuessForm'
-// import Flag from './Flag'
-=======
 import GuessForm from './GuessForm'
 import Flag from './Flag'
 import Score from './Score'
@@ -26,30 +22,28 @@ function App() {
 
   console.log('passed country:', countryName)
 
-  const [showGame, setShowGame] = useState(false); // State to manage Game component visibility
+  const [showGame, setShowGame] = useState(false) // State to manage Game component visibility
 
   const handleShowGame = () => {
     event?.preventDefault()
-    setShowGame(!showGame); // Toggle the visibility of the Game component
-  };
-console.log(showGame);
+    setShowGame(!showGame) // Toggle the visibility of the Game component
+  }
+  console.log(showGame)
   return (
     <div>
       <Nav />
 
       <main>
-<!-- <<<<<<< gamebutton-layout -->
         <h1>Guess the Country</h1>
         {/* <p>React development has begun!</p> */}
         <ul>
           <li>
             <a href="/">| Home |</a>
           </li>
-          
-          
+
           <li>
             <a href="http://delphym-mania-chc-24-worldwide-routing.devacademy.nz/">
-              |  Need some learning?  |
+              | Need some learning? |
             </a>
           </li>
           <li>
@@ -61,7 +55,6 @@ console.log(showGame);
             <button id="gamebtn" onClick={handleShowGame}>
               {showGame ? 'Hide Game' : 'Show Game'}
             </button>
-            
           </li>
         </ul>
         <ul>
@@ -73,12 +66,11 @@ console.log(showGame);
         </ul>
         {/* <GuessForm/> */}
         {showGame && <Game />}
-<!-- ======= -->
+
         <Main />
         <Flag handleFlag={handleFlag} />
         <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
         <GuessForm handleCountryName={handleCountryName} />
-<!-- >>>>>>> main -->
       </main>
       <footer id="credit">
         <Footer />
