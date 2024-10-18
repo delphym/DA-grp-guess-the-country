@@ -9,19 +9,6 @@ import Footer from './Footer'
 import data from '../../data/countries'
 
 function App() {
-  const [countryName, setCountryName] = useState('')
-  const [code, setCode] = useState(data[0].code)
-
-  const handleCountryName = (countryName: string) => {
-    setCountryName(countryName)
-  }
-
-  const handleFlag = (cc: string) => {
-    setCode(cc)
-  }
-
-  console.log('passed country:', countryName)
-
   const [showGame, setShowGame] = useState(false) // State to manage Game component visibility
 
   const handleShowGame = () => {
@@ -67,10 +54,10 @@ function App() {
         {/* <GuessForm/> */}
         {showGame && <Game />}
 
-        <Main />
-        <Flag handleFlag={handleFlag} />
-        <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
-        <GuessForm handleCountryName={handleCountryName} />
+        {/* <Main /> */}
+        {/* <Flag handleFlag={handleFlag} /> */}
+        {/* <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} /> */}
+        {/* <GuessForm handleCountryName={handleCountryName} /> */}
       </main>
       <footer id="credit">
         <Footer />
