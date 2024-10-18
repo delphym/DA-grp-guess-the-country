@@ -1,6 +1,17 @@
 import { useState } from 'react'
 import countriesData from '../../data/countries'
+// import Flag from './Flag'
 
+
+const formstyle = {
+  color: 'black',
+  // backgroundColor: '#f0f0f0',
+  // padding: '20px',
+  // border: '1px solid #ccc',
+  // borderRadius: '10px',
+  // width: '600px',
+  // margin: '0 auto'
+  };
 interface Props {
   handleCountryName: (newCountry: string) => void
 }
@@ -11,18 +22,20 @@ function GuessForm({ handleCountryName }: Props) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value)
     setInputValue(event.target.value)
+
+    
   }
 
   //watch from 24:00 https://youtu.be/MSBY9Myl0tw?si=2lRS7oQlxvFTuF1-&t=1443
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    handleCountryName(inputValue)
     event.preventDefault()
+    handleCountryName(inputValue)
     setInputValue('')
   }
 
   return (
     <>
-      <div>Type in a country name</div>
+      <div style={formstyle}>Type in a country name</div>
       <form onSubmit={handleOnSubmit}>
         <input
           onChange={handleChange}
@@ -46,3 +59,4 @@ function placeholderText() {
 }
 
 export default GuessForm
+
