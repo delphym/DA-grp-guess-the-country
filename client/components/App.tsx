@@ -6,6 +6,7 @@ import GuessForm from './GuessForm'
 import Flag from './Flag'
 import Score from './Score'
 import Footer from './Footer'
+import data from '../../data/countries'
 
 function App() {
   const [countryName, setCountryName] = useState('')
