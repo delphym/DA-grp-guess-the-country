@@ -4,7 +4,7 @@
 // import { useState } from 'react'
 
 interface Props {
-  score: number
+  score: number[]
   countryName: string
   countryCode: string
 }
@@ -15,13 +15,17 @@ function Score({ score, countryName, countryCode }: Props) {
   return (
     <>
       <div>
-        <ul>
+        {/* <ul>
           <li>{score}</li>
           <li>{countryName}</li>
           <li>{countryCode}</li>
-        </ul>
+        </ul> */}
+        <ul></ul>
       </div>
-      <p>Score: {score}</p>
+      <p>
+        Score {'=>'} &nbsp;&nbsp; wrong: {score[0]}&nbsp; vs.&nbsp; correct:{' '}
+        {score[1]}
+      </p>
     </>
   )
 }

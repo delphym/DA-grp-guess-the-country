@@ -14,6 +14,7 @@ function Game() {
     width: '600px',
     margin: '20px auto',
   }
+
   const [countryName, setCountryName] = useState('')
   const [code, setCode] = useState(data[0].code)
 
