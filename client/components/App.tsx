@@ -1,23 +1,39 @@
 import { useState } from 'react'
-import Flag from './Flag.tsx'
-import data from '../../data/countries.ts'
+import Nav from './Nav'
+import Main from './Main'
+import Game from './Game'
+import GuessForm from './GuessForm'
+import Flag from './Flag'
+import Score from './Score'
+import Footer from './Footer'
 
 function App() {
+  const [countryName, setCountryName] = useState('')
   const [code, setCode] = useState(data[0].code)
+
+  const handleCountryName = (countryName: string) => {
+    setCountryName(countryName)
+  }
 
   const handleFlag = (cc: string) => {
     setCode(cc)
   }
 
+  console.log('passed country:', countryName)
+
   return (
     <div>
-      <h1>App</h1>
-      <p>React development has begun!</p>
-      <Flag
-        handleFlag={() => {
-          handleFlag
-        }}
-      />
+      <Nav />
+
+      <main>
+        <Main />
+        <Flag handleFlag={handleFlag} />
+        <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
+        <GuessForm handleCountryName={handleCountryName} />
+      </main>
+      <footer id="credit">
+        <Footer />
+      </footer>
     </div>
   )
 }

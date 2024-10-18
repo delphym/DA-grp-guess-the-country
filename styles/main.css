@@ -1,0 +1,72 @@
+/* Color palette to use: https://coolors.co/643173-19647e-28afb0-f4ebd9-eaf0ce
+<palette>
+  <color name="Eminence" hex="643173" r="100" g="49" b="115" />
+  <color name="Payne's gray" hex="19647e" r="25" g="100" b="126" />
+  <color name="Verdigris" hex="28afb0" r="40" g="175" b="176" />
+  <color name="Eggshell" hex="f4ebd9" r="244" g="235" b="217" />
+  <color name="Beige" hex="eaf0ce" r="234" g="240" b="206" />
+</palette>
+*/
+
+body {
+  background-color: #19647e;
+  color: #eaf0ce; /* #f8f991; */
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+  background-color: #643173;
+  color: #f4ebd9;
+}
+.main,
+.title {
+  display: flex;
+  flex-direction: row;
+}
+
+.title img {
+  height: 5rem;
+  width: 5rem;
+  padding-right: 30px;
+}
+
+.main div {
+  margin: 0px 10px 0px 10px;
+}
+
+a:link {
+  color: #e0ddcf;
+  text-decoration-line: none;
+}
+a:visited {
+  color: #cb9ad9;
+}
+a:visited:hover {
+  color: #d5f382;
+}
+a:hover {
+  color: #f05d23;
+}
+a:active {
+  color: #e4e6c3;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #643173;
+  color: #f4ebd9;
+
+  font-size: smaller;
+  font-style: oblique;
+}
+footer img {
+  height: auto;
+  width: 9rem;
+  padding-right: 30px;
+  border: #f05d23;
+  border-width: 15px;
+}
+
+img {
+  max-height: 200px;
+}
