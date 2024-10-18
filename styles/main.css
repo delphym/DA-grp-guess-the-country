@@ -13,7 +13,9 @@ body {
   color: #eaf0ce; /* #f8f991; */
   font-family: 'Poppins', sans-serif;
 }
-
+p {
+  color: #6c4baf;
+}
 nav {
   background-color: #643173;
   color: #f4ebd9;
@@ -28,11 +30,11 @@ nav {
   height: 5rem;
   width: 5rem;
   padding-right: 30px;
-  
 }
 
 .main div {
   margin: 0px 10px 0px 10px;
+  color: #6c4baf;
 }
 
 a:link {
@@ -72,11 +74,10 @@ img {
   max-height: 200px;
 }
 
-
-h1{
+h1 {
   font-size: 2.5rem;
   font-style: italic;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 ul {
@@ -88,7 +89,7 @@ ul {
   display: flex;
   flex-direction: row;
 }
-li{
+li {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -98,16 +99,19 @@ li{
   /* margin-bottom: 15px; */
 }
 
-#gamebtn{
+#gamebtn {
   background-color: #643173;
   color: #f4ebd9;
   padding: 10px 20px;
   border-radius: 5px;
 }
-#gamebtn:active{
+#gamebtn:active {
   background-color: #733131;
 }
 
+/* .score {
+  font-size: 0px;
+} */
 /* .game-container {
   background-color: #f0f0f0;
   padding: 20px;

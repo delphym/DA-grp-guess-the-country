@@ -47,7 +47,7 @@ function App() {
         <ul>
           <li>
             {/* <Score />  */}
-            <p id="score">Score:</p>
+            {/* <p id="score"></p> */}
             {/* <p id="score">0</p> */}
           </li>
         </ul>

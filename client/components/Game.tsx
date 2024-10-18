@@ -28,7 +28,6 @@ function Game() {
 
   return (
     <div style={gameStyle}>
-      <div>This is a GAME area component</div>
       {/* <img src="https://picsum.photos/200/300" alt="game background" /> */}
       <Flag
         handleFlag={() => {
