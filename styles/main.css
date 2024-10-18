@@ -28,6 +28,7 @@ nav {
   height: 5rem;
   width: 5rem;
   padding-right: 30px;
+  
 }
 
 .main div {
@@ -35,7 +36,7 @@ nav {
 }
 
 a:link {
-  color: #e0ddcf;
+  color: #cb9ad9;
   text-decoration-line: none;
 }
 a:visited {
@@ -47,14 +48,14 @@ a:visited:hover {
 a:hover {
   color: #f05d23;
 }
-a:active {
+/* a:active {
   color: #e4e6c3;
   font-weight: bold;
-}
+} */
 
 footer {
   background-color: #643173;
-  color: #f4ebd9;
+  /* color: #f4ebd9; */
 
   font-size: smaller;
   font-style: oblique;
@@ -70,3 +71,49 @@ footer img {
 img {
   max-height: 200px;
 }
+
+
+h1{
+  font-size: 2.5rem;
+  font-style: italic;
+  display:flex;
+  justify-content: center;
+}
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  gap: 10px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* justify-content:center;
+  display: flex;
+  flex-direction:row; */
+  /* margin-bottom: 15px; */
+}
+
+#gamebtn{
+  background-color: #643173;
+  color: #f4ebd9;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+#gamebtn:active{
+  background-color: #733131;
+}
+
+/* .game-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+} */
+
+/* .guess-form {
+  margin-top: 10px;
+} */
