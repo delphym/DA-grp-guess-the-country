@@ -8,8 +8,10 @@ function Footer() {
 
   return (
     <>
-      This game is proudly <b>Brought to You by The-A-Team</b>!
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <span>
+        This game is proudly <b>Brought to You by The-A-Team</b>!
+      </span>
+      <div style={{ display: 'flex' }}>
         <button onClick={handleShowImg}>
           {showImg ? 'Hide Img' : 'The A Team'}
         </button>

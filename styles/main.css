@@ -50,24 +50,36 @@ a:visited:hover {
 a:hover {
   color: #f05d23;
 }
-/* a:active {
+a:active {
   color: #e4e6c3;
   font-weight: bold;
-} */
+}
 
 footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
   background-color: #643173;
-  /* color: #f4ebd9; */
-
   font-size: smaller;
   font-style: oblique;
+  /* padding: 1rem; Add padding to create space around the content */
+}
+footer button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 footer img {
+  display: flex;
+  flex-direction: column;
   height: auto;
   width: 9rem;
   padding-right: 30px;
   border: #f05d23;
   border-width: 15px;
+}
+footer p {
+  white-space: nowrap; /* Prevent wrapping */
 }
 
 img {
@@ -86,7 +98,6 @@ ul {
   padding: 0;
   gap: 10px;
   justify-content: center;
-  display: flex;
   flex-direction: row;
 }
 li {

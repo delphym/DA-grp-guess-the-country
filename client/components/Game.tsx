@@ -7,12 +7,12 @@ import data from '../../data/countries'
 
 function Game() {
   const gameStyle = {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'rgb(130 190 220)', //'#f0f0f0',
     padding: '20px',
     border: '1px solid #ccc',
     borderRadius: '10px',
     width: '600px',
-    margin: '0 auto',
+    margin: '20px auto',
   }
   const [countryName, setCountryName] = useState('')
   const [code, setCode] = useState(data[0].code)
