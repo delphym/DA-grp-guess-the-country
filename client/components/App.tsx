@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Nav from './Nav'
+import Main from './Main'
 import Game from './Game'
 import GuessForm from './GuessForm'
 import Flag from './Flag'
@@ -20,22 +21,7 @@ function App() {
       <Nav />
 
       <main>
-        <h1>Guess the Country</h1>
-        <p>React development has begun!</p>
-
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="http://delphym-mania-chc-24-worldwide-routing.devacademy.nz/">
-              Need some learning?
-            </a>
-          </li>
-          <li>
-            <a href="#credit">Credit</a>
-          </li>
-        </ul>
+        <Main />
         <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
         <GuessForm handleCountryName={handleCountryName} />
       </main>
