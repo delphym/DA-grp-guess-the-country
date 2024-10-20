@@ -1,17 +1,19 @@
+import { Link } from 'react-router-dom'
+
 function Nav() {
   return (
     <nav>
       <ul>
         <li>
-          <a href="/">| Home |</a>
+          <Link to="/">| Home |</Link>
         </li>
         <li>
-          <a href="http://delphym-mania-chc-24-worldwide-routing.devacademy.nz/">
+          <Link to="http://delphym-mania-chc-24-worldwide-routing.devacademy.nz/">
             | Need some learning? |
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#credit">| Credit |</a>
+          <Link to="#credit">| Credit |</Link>
         </li>
       </ul>
     </nav>
