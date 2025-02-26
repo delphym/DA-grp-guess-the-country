@@ -1,7 +1,8 @@
 // import data from '../../data/countries'
 // import Flag from './Flag'
 // import GuessForm from './GuessForm'
-// import { useState } from 'react'
+
+import { useState } from 'react'
 
 interface Props {
   score: number[]

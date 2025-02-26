@@ -1,21 +1,33 @@
+import { useEffect, useState } from 'react'
 import data from '../../data/countries.ts'
 
 interface Props {
-  handleFlag: (code: string) => void
+  handleFlag: (code: string, name: string) => void
 }
 
 function Flag({ handleFlag }: Props) {
-  let ccode: string = '0'
+  const [ccode, setCode] = useState<string>('0')
+  const [cname, setCname] = useState<string>('')
+
   const getFlag = () => {
     const max: number = data.length - 1
     const rindx: number = Math.floor(Math.random() * max)
-    // const rindx: number = 129
 
-    ccode = data[rindx].code
+    const newCcode = data[rindx].code
+    const newCname = data[rindx].name
+    setCode(newCcode)
+    setCname(newCname)
+    console.log('Country name:', newCname)
+    console.log('Country code of the flag:', newCcode)
   }
 
-  getFlag()
-  handleFlag(ccode)
+  useEffect(() => {
+    getFlag()
+  }, []) // run only once when component mounts
+
+  useEffect(() => {
+    handleFlag(ccode, cname)
+  }, [ccode, cname]) // run when ccode or cname changes
 
   return (
     <img
