@@ -5,13 +5,12 @@
 import { useState } from 'react'
 
 interface Props {
-  handleScore: (newScore: number[], countAttempts: number) => void
+  score: number[]
+  countAttempts: number
 }
 
-function Score({ handleScore }: Props) {
-  const [score, setScore] = useState([0, 0])
-  const [countAttempts, setCountAttempts] = useState(0)
-  console.log('score:', score[0], score[1])
+function Score({ score, countAttempts }: Props) {
+  console.log('- score:', score[0], score[1])
 
   return (
     <>

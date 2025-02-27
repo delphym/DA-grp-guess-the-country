@@ -32,27 +32,41 @@ function Game() {
   const handleCountryName = (countryName: string) => {
     console.log('guessed country:', countryName)
     setCountryName(countryName)
+    setTimeout(() => handleScore(score), 0)
   }
   console.log('guessed country:', countryName)
 
   const handleScore = (score: number[]) => {
     const isMatch = (countryName: string, flagCountryName: string) => {
-      return countryName.toLowerCase() === flagCountryName.toLowerCase()
+      console.log('countryName:', countryName)
+      console.log('flagCountryName:', flagCountryName)
+
+      const matched =
+        countryName.toLowerCase() === flagCountryName.toLowerCase()
+      console.log('matched:', matched)
+
+      return matched
     }
-    setScore([isMatch(countryName, flagCountryName) ? 1 : 0, 1])
-    setCountAttempts(countAttempts + 1)
+    console.log('isMatch:', isMatch)
+
+    const newScore = isMatch(countryName, flagCountryName)
+      ? [score[0] + 1, score[1]]
+      : [score[0], score[1] + 1]
+    setScore(newScore)
+    setCountAttempts((prevCount) => prevCount + 1)
+    console.log('newScore:', newScore)
+    console.log('countAttempts:', countAttempts)
   }
 
   console.log('score:', score)
   console.log('countryName:', countryName)
   console.log('flagCountryName:', flagCountryName)
   console.log('flagCode:', flagCode)
-  // console.log('isMatch:', isMatch(countryName, flagCountryName))
 
   return (
     <div style={gameStyle}>
       <Flag handleFlag={handleFlag} />
-      <Score handleScore={handleScore} />
+      <Score score={score} countAttempts={countAttempts} />
       <GuessForm handleCountryName={handleCountryName} />
     </div>
   )
