@@ -18,7 +18,8 @@ function Game() {
   const [countryName, setCountryName] = useState('')
   const [flagCode, setFlagCode] = useState('')
   const [flagCountryName, setFlagCountryName] = useState('')
-  // const [score, setScore] = useState([0, 0])
+  const [score, setScore] = useState([0, 0])
+  const [countAttempts, setCountAttempts] = useState(0)
 
   const handleFlag = (cc: string, cn: string) => {
     setFlagCode(cc)
@@ -34,20 +35,24 @@ function Game() {
   }
   console.log('guessed country:', countryName)
 
-  const isMatch = (countryName: string, flagCountryName: string) => {
-    return countryName.toLowerCase() === flagCountryName.toLowerCase()
+  const handleScore = (score: number[]) => {
+    const isMatch = (countryName: string, flagCountryName: string) => {
+      return countryName.toLowerCase() === flagCountryName.toLowerCase()
+    }
+    setScore([isMatch(countryName, flagCountryName) ? 1 : 0, 1])
+    setCountAttempts(countAttempts + 1)
   }
-  const score = [isMatch(countryName, flagCountryName) ? 1 : 0, 1]
+
   console.log('score:', score)
   console.log('countryName:', countryName)
   console.log('flagCountryName:', flagCountryName)
   console.log('flagCode:', flagCode)
-  console.log('isMatch:', isMatch(countryName, flagCountryName))
+  // console.log('isMatch:', isMatch(countryName, flagCountryName))
 
   return (
     <div style={gameStyle}>
       <Flag handleFlag={handleFlag} />
-      <Score score={[1]} countryName={'New Zealand'} countryCode={'NZ'} />
+      <Score handleScore={handleScore} />
       <GuessForm handleCountryName={handleCountryName} />
     </div>
   )

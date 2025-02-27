@@ -5,13 +5,13 @@
 import { useState } from 'react'
 
 interface Props {
-  score: number[]
-  countryName: string
-  countryCode: string
+  handleScore: (newScore: number[], countAttempts: number) => void
 }
 
-function Score({ score, countryName, countryCode }: Props) {
-  // const [score, setScore] = useState(0)
+function Score({ handleScore }: Props) {
+  const [score, setScore] = useState([0, 0])
+  const [countAttempts, setCountAttempts] = useState(0)
+  console.log('score:', score[0], score[1])
 
   return (
     <>
@@ -24,8 +24,8 @@ function Score({ score, countryName, countryCode }: Props) {
         <ul></ul>
       </div>
       <p>
-        Score {'=>'} &nbsp;&nbsp; wrong: {score[0]}&nbsp; vs.&nbsp; correct:{' '}
-        {score[1]}
+        Score {'#' + countAttempts} {'=>'} &nbsp;&nbsp; correct: {score[0]}
+        &nbsp; vs.&nbsp; wrong: {score[1]}
       </p>
     </>
   )
