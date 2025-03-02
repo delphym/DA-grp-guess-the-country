@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import GuessForm from './GuessForm'
 import Flag from './Flag'
@@ -15,35 +15,41 @@ function Game() {
     margin: '20px auto',
   }
 
-  const [countryName, setCountryName] = useState('')
+  // const [countryName, setCountryName] = useState('')
   const [flagCode, setFlagCode] = useState('')
   const [flagCountryName, setFlagCountryName] = useState('')
   const [score, setScore] = useState([0, 0])
   const [countAttempts, setCountAttempts] = useState(0)
 
-  const handleFlag = (cc: string, cn: string) => {
-    setFlagCode(cc)
-    setFlagCountryName(cn)
-    console.log('received flag code:', cc)
-    console.log('received flag name:', cn)
-  }
-  console.log('passed code:', flagCode)
+  // Initialize the first flag
+  useEffect(() => {
+    refreshFlag()
+  }, [])
 
-  const handleCountryName = (countryName: string) => {
-    console.log('guessed country:', countryName)
-    setCountryName(countryName)
-    setTimeout(() => handleScore(), 0)
-  }
-  console.log('guessed country:', countryName)
+  // const handleFlag = (cc: string, cn: string) => {
+  //   setFlagCode(cc)
+  //   setFlagCountryName(cn)
+  //   console.log('received flag code:', cc)
+  //   console.log('received flag name:', cn)
+  // }
+  // console.log('passed code:', flagCode)
 
-  const handleScore = () => {
-    const isMatch = (countryName: string, flagCountryName: string) => {
-      return countryName.toLowerCase() === flagCountryName.toLowerCase()
-    }
-    const newScore = isMatch(countryName, flagCountryName)
-      ? [score[0] + 1, score[1]]
-      : [score[0], score[1] + 1]
-    setScore(newScore)
+  // const handleCountryName = (countryName: string) => {
+  //   console.log('guessed country:', countryName)
+  //   setCountryName(countryName)
+  //   setTimeout(() => handleScore(), 0)
+  // }
+  // console.log('guessed country:', countryName)
+
+  const handleScore = (guessedName: string) => {
+    console.log('guessed country:', guessedName, '| Actual: ', flagCountryName)
+
+    const isMatch =
+      guessedName.trim().toLowerCase() === flagCountryName.trim().toLowerCase()
+    setScore(([correct, wrong]) =>
+      isMatch ? [correct + 1, wrong] : [correct, wrong + 1],
+    )
+
     setCountAttempts(countAttempts + 1)
     refreshFlag()
   }
@@ -58,15 +64,15 @@ function Game() {
   }
 
   console.log('score:', score)
-  console.log('countryName:', countryName)
+  // console.log('countryName:', guessedName)
   console.log('flagCountryName:', flagCountryName)
   console.log('flagCode:', flagCode)
 
   return (
     <div style={gameStyle}>
-      <Flag handleFlag={handleFlag} />
+      <Flag flagCode={flagCode} flagCountryName={flagCountryName} />
       <Score score={score} countAttempts={countAttempts} />
-      <GuessForm handleCountryName={handleCountryName} />
+      <GuessForm handleCountryName={handleScore} />
     </div>
   )
 }
