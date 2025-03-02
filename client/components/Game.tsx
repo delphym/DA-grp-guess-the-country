@@ -32,30 +32,29 @@ function Game() {
   const handleCountryName = (countryName: string) => {
     console.log('guessed country:', countryName)
     setCountryName(countryName)
-    setTimeout(() => handleScore(score), 0)
+    setTimeout(() => handleScore(), 0)
   }
   console.log('guessed country:', countryName)
 
-  const handleScore = (score: number[]) => {
+  const handleScore = () => {
     const isMatch = (countryName: string, flagCountryName: string) => {
-      console.log('countryName:', countryName)
-      console.log('flagCountryName:', flagCountryName)
-
-      const matched =
-        countryName.toLowerCase() === flagCountryName.toLowerCase()
-      console.log('matched:', matched)
-
-      return matched
+      return countryName.toLowerCase() === flagCountryName.toLowerCase()
     }
-    console.log('isMatch:', isMatch)
-
     const newScore = isMatch(countryName, flagCountryName)
       ? [score[0] + 1, score[1]]
       : [score[0], score[1] + 1]
     setScore(newScore)
-    setCountAttempts((prevCount) => prevCount + 1)
-    console.log('newScore:', newScore)
-    console.log('countAttempts:', countAttempts)
+    setCountAttempts(countAttempts + 1)
+    refreshFlag()
+  }
+
+  const refreshFlag = () => {
+    const max = data.length - 1
+    const rindx = Math.floor(Math.random() * max)
+    const newCcode = data[rindx].code
+    const newCname = data[rindx].name
+    setFlagCode(newCcode)
+    setFlagCountryName(newCname)
   }
 
   console.log('score:', score)
