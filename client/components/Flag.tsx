@@ -1,26 +1,18 @@
+import { useEffect, useState } from 'react'
 import data from '../../data/countries.ts'
 
 interface Props {
-  handleFlag: (code: string) => void
+  flagCode: string
+  flagCountryName: string
 }
 
-function Flag({ handleFlag }: Props) {
-  let ccode: string = '0'
-  const getFlag = () => {
-    const max: number = data.length - 1
-    const rindx: number = Math.floor(Math.random() * max)
-    // const rindx: number = 129
-
-    ccode = data[rindx].code
-  }
-
-  getFlag()
-  handleFlag(ccode)
+function Flag({ flagCode, flagCountryName }: Props) {
+  console.log('new flag:', flagCountryName, flagCode)
 
   return (
     <img
-      src={`https://flagpedia.net/data/flags/w580/${ccode.toLowerCase()}.webp`}
-      alt={`Flag of country with code '${ccode}'`}
+      src={`https://flagpedia.net/data/flags/w580/${flagCode.toLowerCase()}.webp`}
+      alt={`Flag of country with code '${flagCode}'`}
     ></img>
   )
 }

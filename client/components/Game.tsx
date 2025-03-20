@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import GuessForm from './GuessForm'
 import Flag from './Flag'
@@ -7,46 +7,74 @@ import data from '../../data/countries'
 
 function Game() {
   const gameStyle = {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'rgb(130 190 220)', //'#f0f0f0',
     padding: '20px',
     border: '1px solid #ccc',
     borderRadius: '10px',
     width: '600px',
-    margin: '0 auto',
-  }
-  const [countryName, setCountryName] = useState('')
-  const [code, setCode] = useState(data[0].code)
-
-  const handleFlag = (cc: string) => {
-    setCode(cc)
+    margin: '20px auto',
   }
 
-  const handleCountryName = (countryName: string) => {
-    setCountryName(countryName)
+  // const [countryName, setCountryName] = useState('')
+  const [flagCode, setFlagCode] = useState('')
+  const [flagCountryName, setFlagCountryName] = useState('')
+  const [score, setScore] = useState([0, 0])
+  const [countAttempts, setCountAttempts] = useState(0)
+
+  // Initialize the first flag
+  useEffect(() => {
+    refreshFlag()
+  }, [])
+
+  // const handleFlag = (cc: string, cn: string) => {
+  //   setFlagCode(cc)
+  //   setFlagCountryName(cn)
+  //   console.log('received flag code:', cc)
+  //   console.log('received flag name:', cn)
+  // }
+  // console.log('passed code:', flagCode)
+
+  // const handleCountryName = (countryName: string) => {
+  //   console.log('guessed country:', countryName)
+  //   setCountryName(countryName)
+  //   setTimeout(() => handleScore(), 0)
+  // }
+  // console.log('guessed country:', countryName)
+
+  const handleScore = (guessedName: string) => {
+    console.log('guessed country:', guessedName, '| Actual: ', flagCountryName)
+
+    const isMatch =
+      guessedName.trim().toLowerCase() === flagCountryName.trim().toLowerCase()
+    setScore(([correct, wrong]) =>
+      isMatch ? [correct + 1, wrong] : [correct, wrong + 1],
+    )
+
+    setCountAttempts(countAttempts + 1)
+    refreshFlag()
   }
-  console.log('passed country:', countryName)
+
+  const refreshFlag = () => {
+    const max = data.length - 1
+    const rindx = Math.floor(Math.random() * max)
+    const newCcode = data[rindx].code
+    const newCname = data[rindx].name
+    setFlagCode(newCcode)
+    setFlagCountryName(newCname)
+  }
+
+  console.log('score:', score)
+  // console.log('countryName:', guessedName)
+  console.log('flagCountryName:', flagCountryName)
+  console.log('flagCode:', flagCode)
 
   return (
     <div style={gameStyle}>
-      {/* <img src="https://picsum.photos/200/300" alt="game background" /> */}
-      <Flag
-        handleFlag={() => {
-          handleFlag
-        }}
-      />
-      <Score score={1} countryName={'New Zealand'} countryCode={'NZ'} />
-      <GuessForm handleCountryName={handleCountryName} />{' '}
+      <Flag flagCode={flagCode} flagCountryName={flagCountryName} />
+      <Score score={score} countAttempts={countAttempts} />
+      <GuessForm handleCountryName={handleScore} />
     </div>
   )
 }
-
-// function Game() {
-//   return (
-//     <>
-//       <div>This is a GAME area component</div>
-//       <GuessForm/>
-//     </>
-//   )
-// }
 
 export default Game
