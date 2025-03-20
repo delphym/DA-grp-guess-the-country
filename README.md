@@ -1,4 +1,4 @@
-# React Boilerplate
+# Guess the country game
 
 ## Packages Included
 
@@ -21,5 +21,6 @@
     ```
   </details>
 
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-react)
+## Deployment
+- the apps is now hosted @ Vercel platform
+- the app should live now @ [guess-the-country.vercel.app](https://guess-the-country.vercel.app)
