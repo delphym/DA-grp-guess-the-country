@@ -23,4 +23,4 @@
 
 ## Deployment
 - the apps is now hosted @ Vercel platform
-- the app should live now @ [guess-the-country.vercel.app](https://guess-the-country.vercel.app)
+- the app should live now @ [delphym-da-guess-country.vercel.app/](https://delphym-da-guess-country.vercel.app/)
