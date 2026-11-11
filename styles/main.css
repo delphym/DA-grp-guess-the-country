@@ -409,12 +409,13 @@ li {
   }
 
   .guess-form {
-    flex-direction: row;
+    flex-direction: column;
     width: auto;
+    max-width: 350px;
   }
 
   .guess-form input {
-    width: 200px;
+    width: 250px;
   }
 
   .multiple-choice-buttons.medium {
