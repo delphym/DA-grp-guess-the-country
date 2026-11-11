@@ -9,15 +9,6 @@ import data from '../../data/countries'
 type Difficulty = 'easy' | 'medium' | 'hard' | 'expert'
 
 function Game() {
-  const gameStyle = {
-    backgroundColor: 'rgb(130 190 220)', //'#f0f0f0',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '10px',
-    width: '600px',
-    margin: '20px auto',
-  }
-
   const [difficulty, setDifficulty] = useState<Difficulty>('easy')
   const [flagCode, setFlagCode] = useState('')
   const [flagCountryName, setFlagCountryName] = useState('')
@@ -71,52 +62,29 @@ function Game() {
     }
   }
 
-  const difficultyStyle = {
-    display: 'flex',
-    gap: '10px',
-    justifyContent: 'center',
-    marginBottom: '20px',
-  }
-
-  const buttonBase = {
-    padding: '10px 15px',
-    fontSize: '14px',
-    border: '2px solid #333',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    transition: 'all 0.3s',
-  }
-
-  const getDifficultyButtonStyle = (level: Difficulty) => ({
-    ...buttonBase,
-    backgroundColor: difficulty === level ? '#4CAF50' : '#ddd',
-    color: difficulty === level ? 'white' : 'black',
-  })
-
   return (
-    <div style={gameStyle}>
-      <div style={difficultyStyle}>
+    <div className="game-container">
+      <div className="difficulty-selector">
         <button
-          style={getDifficultyButtonStyle('easy')}
+          className={`difficulty-button ${difficulty === 'easy' ? 'active' : ''}`}
           onClick={() => setDifficulty('easy')}
         >
           Easy
         </button>
         <button
-          style={getDifficultyButtonStyle('medium')}
+          className={`difficulty-button ${difficulty === 'medium' ? 'active' : ''}`}
           onClick={() => setDifficulty('medium')}
         >
           Medium
         </button>
         <button
-          style={getDifficultyButtonStyle('hard')}
+          className={`difficulty-button ${difficulty === 'hard' ? 'active' : ''}`}
           onClick={() => setDifficulty('hard')}
         >
           Hard
         </button>
         <button
-          style={getDifficultyButtonStyle('expert')}
+          className={`difficulty-button ${difficulty === 'expert' ? 'active' : ''}`}
           onClick={() => setDifficulty('expert')}
         >
           Expert

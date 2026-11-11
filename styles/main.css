@@ -8,10 +8,32 @@
 </palette>
 */
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: #19647e;
-  color: #eaf0ce; /* #f8f991; */
+  color: #eaf0ce;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
 }
 p {
   color: #6c4baf;
@@ -19,21 +41,37 @@ p {
 nav {
   background-color: #643173;
   color: #f4ebd9;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  white-space: nowrap;
 }
 .main,
 .title {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .title img {
-  height: 5rem;
-  width: 5rem;
-  padding-right: 30px;
+  height: 3rem;
+  width: 3rem;
+  padding-right: 1rem;
 }
 
 .main div {
-  margin: 0px 10px 0px 10px;
+  margin: 0 0.625rem;
   color: #6c4baf;
 }
 
@@ -58,28 +96,41 @@ a:active {
 footer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   background-color: #643173;
-  font-size: smaller;
+  font-size: 0.875rem;
   font-style: oblique;
-  /* padding: 1rem; Add padding to create space around the content */
+  padding: 1rem;
+  margin-top: auto;
 }
+
 footer button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
 }
+
 footer img {
+  height: auto;
+  width: 6rem;
+  max-width: 100%;
+  border: 8px solid #f05d23;
+}
+
+footer p {
+  margin: 0;
+  word-break: break-word;
+}
+
+.footer-team-container {
   display: flex;
   flex-direction: column;
-  height: auto;
-  width: 9rem;
-  padding-right: 30px;
-  border: #f05d23;
-  border-width: 15px;
-}
-footer p {
-  white-space: nowrap; /* Prevent wrapping */
+  align-items: center;
+  gap: 0.5rem;
 }
 
 img {
@@ -87,114 +138,182 @@ img {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-style: italic;
   display: flex;
   justify-content: center;
+  margin: 0.25rem 0 0.1rem 0;
+  padding: 0 1rem;
 }
+
 ul {
   display: flex;
   list-style-type: none;
   padding: 0;
-  gap: 10px;
+  gap: 0.625rem;
   justify-content: center;
-  flex-direction: row;
+  flex-wrap: wrap;
 }
 li {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* justify-content:center;
+}
+
+/* Game controls container - prepared for future buttons (leaderboard, stats, etc.) */
+.game-controls {
   display: flex;
-  flex-direction:row; */
-  /* margin-bottom: 15px; */
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0.1rem 0;
+  padding: 0 1rem;
 }
 
 #gamebtn {
   background-color: #643173;
   color: #f4ebd9;
-  padding: 10px 20px;
+  padding: 0.3rem 0.7rem;
   border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  min-height: 28px;
+  transition: background-color 0.3s;
 }
+
+#gamebtn:hover {
+  background-color: #733131;
+}
+
 #gamebtn:active {
   background-color: #733131;
 }
 
 /* Game components styling */
+.game-container {
+  background-color: rgb(130 190 220);
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0.75rem auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 480px) {
+  .game-container {
+    padding: 1.25rem;
+    margin: 1.25rem auto;
+  }
+}
+
 .flag-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 0.75rem 0.5rem;
+  padding: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  .flag-container {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
 }
 
 .flag-container img {
   max-width: 100%;
   height: auto;
+  max-height: 180px;
   border-radius: 8px;
+}
+
+@media (min-width: 480px) {
+  .flag-container img {
+    max-height: 250px;
+  }
 }
 
 .score-display {
   text-align: center;
-  margin: 15px 0;
-  font-size: 16px;
+  margin: 1rem 0.5rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .guess-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 0.75rem;
+  margin: 0.75rem;
+  padding: 0 0.75rem;
 }
 
 .guess-form-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
 .guess-form-label {
   color: black;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 0.25rem;
 }
 
 .guess-form {
   display: flex;
-  gap: 8px;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
   justify-content: center;
+  width: 100%;
+  max-width: 300px;
 }
 
 .guess-form input {
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: 0.625rem;
+  font-size: 1rem;
   border: 2px solid #333;
   border-radius: 5px;
-  width: 200px;
+  width: 100%;
+  min-height: 44px;
 }
 
 .guess-form button {
-  padding: 8px 16px;
-  font-size: 14px;
-  background-color: #4CAF50;
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: background-color 0.3s;
+  min-height: 44px;
 }
 
 .multiple-choice-buttons {
   display: grid;
-  gap: 15px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 0.75rem;
+  margin: 0.75rem auto;
+  padding: 0 0.5rem;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .multiple-choice-buttons {
+    gap: 1rem;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
 }
 
 .multiple-choice-buttons.easy {
@@ -204,25 +323,27 @@ li {
 
 .multiple-choice-buttons.medium {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 400px;
+  max-width: 350px;
 }
 
 .multiple-choice-buttons.hard {
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 600px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 350px;
 }
 
 .multiple-choice-buttons button {
-  padding: 12px 20px;
-  font-size: 16px;
+  padding: 0.75rem;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
   font-weight: bold;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   width: 100%;
+  min-height: 44px;
+  word-break: break-word;
 }
 
 .multiple-choice-buttons button:hover {
@@ -231,4 +352,99 @@ li {
 
 .multiple-choice-buttons button:active {
   background-color: #3d8b40;
+}
+
+/* Difficulty selector styling */
+.difficulty-selector {
+  display: flex;
+  gap: 0.625rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.difficulty-button {
+  padding: 0.625rem 0.9375rem;
+  font-size: 0.875rem;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  min-height: 44px;
+  background-color: #ddd;
+  color: black;
+}
+
+.difficulty-button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.difficulty-button:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 480px) {
+  .difficulty-selector {
+    gap: 0.75rem;
+  }
+
+  .difficulty-button {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .game-controls {
+    gap: 0.75rem;
+    margin: 0.1rem 0;
+  }
+
+  #gamebtn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9375rem;
+    min-height: 35px;
+  }
+
+  .guess-form {
+    flex-direction: column;
+    width: auto;
+    max-width: 350px;
+  }
+
+  .guess-form input {
+    width: 250px;
+  }
+
+  .multiple-choice-buttons.medium {
+    max-width: 450px;
+  }
+
+  .multiple-choice-buttons.hard {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 550px;
+  }
+
+  .title img {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+  .title img {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  footer img {
+    width: 9rem;
+  }
+
+  .guess-form {
+    gap: 0.5rem;
+  }
 }

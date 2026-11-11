@@ -23,8 +23,8 @@ function GuessForm({ handleCountryName }: Props) {
   return (
     <div className="guess-form-container">
       <div className="guess-form-content">
-        <div className="guess-form-label">Type in a country name</div>
         <form onSubmit={handleOnSubmit} className="guess-form">
+          <div className="guess-form-label">Type in a country name:</div>
           <input
             onChange={handleChange}
             type="text"
@@ -33,9 +33,7 @@ function GuessForm({ handleCountryName }: Props) {
             value={inputValue}
             placeholder={`e.g.${placeholderText()}`}
           />
-          <button type="submit">
-            submit
-          </button>
+          <button type="submit">submit</button>
         </form>
       </div>
     </div>

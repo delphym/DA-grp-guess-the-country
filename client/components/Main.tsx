@@ -2,25 +2,23 @@ import { useState } from 'react'
 import Game from './Game'
 
 function Main() {
-  const [showGame, setShowGame] = useState(false) // State to manage Game component visibility
+  const [showGame, setShowGame] = useState(false)
 
   const handleShowGame = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    setShowGame(!showGame) // Toggle the visibility of the Game component
+    setShowGame(!showGame)
   }
   console.log(showGame)
 
   return (
     <>
       <h1>Guess the Country</h1>
-      <ul>
-        <li>
-          <button id="gamebtn" onClick={handleShowGame}>
-            {showGame ? 'Hide Game' : 'Show Game'}
-          </button>
-        </li>
-      </ul>
-      {showGame && <Game />} {/* Render the Game component */}
+      <div className="game-controls">
+        <button id="gamebtn" onClick={handleShowGame}>
+          {showGame ? 'Hide Game' : 'Show Game'}
+        </button>
+      </div>
+      {showGame && <Game />}
     </>
   )
 }
