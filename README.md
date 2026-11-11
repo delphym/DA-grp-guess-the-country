@@ -22,7 +22,7 @@
 
 ## Deployment
 - the apps is now hosted @ Vercel platform
-- the app should live now @ [delphym-da-guess-country.vercel.app/](https://delphym-da-guess-country.vercel.app/)
+- the app should live now @ [guess-the-country-flame.vercel.app/](https://guess-the-country-flame.vercel.app)
 
 ---
 Based on the **React boilerplate** by *Dev Academy Aotearoa*.

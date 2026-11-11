@@ -11,20 +11,12 @@ function Score({ score, countAttempts }: Props) {
   console.log('- score:', score[0], score[1])
 
   return (
-    <>
-      <div>
-        {/* <ul>
-          <li>{score}</li>
-          <li>{countryName}</li>
-          <li>{countryCode}</li>
-        </ul> */}
-        <ul></ul>
-      </div>
+    <div className="score-display">
       <p>
         Score {'#' + countAttempts} {'=>'} &nbsp;&nbsp; correct: {score[0]}
         &nbsp; vs.&nbsp; wrong: {score[1]}
       </p>
-    </>
+    </div>
   )
 }
 
