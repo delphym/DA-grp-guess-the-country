@@ -141,6 +141,54 @@ li {
   color: #333;
 }
 
+.guess-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.guess-form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.guess-form-label {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.guess-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.guess-form input {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.guess-form button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
 .multiple-choice-buttons {
   display: grid;
   gap: 15px;
