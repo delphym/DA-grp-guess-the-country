@@ -1,10 +1,9 @@
 {
-  "name": "boilerplate-react",
+  "name": "guess-the-country",
   "type": "module",
-  "version": "0.2.0",
-  "description": "React!",
-  "repository": "https://github.com/dev-academy-challenges/react-boilerplate.git",
-  "main": "server/index.js",
+  "version": "0.3.0",
+  "description": "React! Guess the country game",
+  "repository": "https://github.com/delphym/DA-grp-guess-the-country.git",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
