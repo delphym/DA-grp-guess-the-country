@@ -2,8 +2,6 @@
 // import Flag from './Flag'
 // import GuessForm from './GuessForm'
 
-import { useState } from 'react'
-
 interface Props {
   score: number[]
   countAttempts: number
