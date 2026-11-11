@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import countriesData from '../../data/countries'
 
-const formstyle = {
-  color: 'black',
-}
-
 interface Props {
   handleCountryName: (newCountry: string) => void
 }
@@ -25,21 +21,24 @@ function GuessForm({ handleCountryName }: Props) {
   }
 
   return (
-    <>
-      <div style={formstyle}>Type in a country name</div>
-      <form onSubmit={handleOnSubmit}>
-        <input
-          onChange={handleChange}
-          type="text"
-          name="countryName"
-          id="county"
-          value={inputValue}
-          placeholder={`e.g.${placeholderText()}`}
-        />
-        <button type="submit">submit</button>
-      </form>
-      <p />
-    </>
+    <div className="guess-form-container">
+      <div className="guess-form-content">
+        <div className="guess-form-label">Type in a country name</div>
+        <form onSubmit={handleOnSubmit} className="guess-form">
+          <input
+            onChange={handleChange}
+            type="text"
+            name="countryName"
+            id="county"
+            value={inputValue}
+            placeholder={`e.g.${placeholderText()}`}
+          />
+          <button type="submit">
+            submit
+          </button>
+        </form>
+      </div>
+    </div>
   )
 }
 

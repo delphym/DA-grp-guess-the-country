@@ -18,7 +18,7 @@ function Game() {
     margin: '20px auto',
   }
 
-  const [difficulty, setDifficulty] = useState<Difficulty>('expert')
+  const [difficulty, setDifficulty] = useState<Difficulty>('easy')
   const [flagCode, setFlagCode] = useState('')
   const [flagCountryName, setFlagCountryName] = useState('')
   const [score, setScore] = useState([0, 0])
