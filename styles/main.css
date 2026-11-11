@@ -257,7 +257,7 @@ li {
 .guess-form-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
 }
 
@@ -265,7 +265,7 @@ li {
   color: black;
   font-size: 0.875rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .guess-form {
