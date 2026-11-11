@@ -3,7 +3,10 @@ import { useState, useEffect, useCallback } from 'react'
 import GuessForm from './GuessForm'
 import Flag from './Flag'
 import Score from './Score'
+import MultipleChoiceButtons from './MultipleChoiceButtons'
 import data from '../../data/countries'
+
+type Difficulty = 'easy' | 'medium' | 'hard' | 'expert'
 
 function Game() {
   const gameStyle = {
@@ -15,7 +18,7 @@ function Game() {
     margin: '20px auto',
   }
 
-  // const [countryName, setCountryName] = useState('')
+  const [difficulty, setDifficulty] = useState<Difficulty>('expert')
   const [flagCode, setFlagCode] = useState('')
   const [flagCountryName, setFlagCountryName] = useState('')
   const [score, setScore] = useState([0, 0])
@@ -36,21 +39,6 @@ function Game() {
     refreshFlag()
   }, [refreshFlag])
 
-  // const handleFlag = (cc: string, cn: string) => {
-  //   setFlagCode(cc)
-  //   setFlagCountryName(cn)
-  //   console.log('received flag code:', cc)
-  //   console.log('received flag name:', cn)
-  // }
-  // console.log('passed code:', flagCode)
-
-  // const handleCountryName = (countryName: string) => {
-  //   console.log('guessed country:', countryName)
-  //   setCountryName(countryName)
-  //   setTimeout(() => handleScore(), 0)
-  // }
-  // console.log('guessed country:', countryName)
-
   const handleScore = (guessedName: string) => {
     console.log('guessed country:', guessedName, '| Actual: ', flagCountryName)
 
@@ -65,15 +53,88 @@ function Game() {
   }
 
   console.log('score:', score)
-  // console.log('countryName:', guessedName)
   console.log('flagCountryName:', flagCountryName)
   console.log('flagCode:', flagCode)
 
+  const getNumOptions = (): number => {
+    switch (difficulty) {
+      case 'easy':
+        return 2
+      case 'medium':
+        return 4
+      case 'hard':
+        return 6
+      case 'expert':
+        return 0
+      default:
+        return 0
+    }
+  }
+
+  const difficultyStyle = {
+    display: 'flex',
+    gap: '10px',
+    justifyContent: 'center',
+    marginBottom: '20px',
+  }
+
+  const buttonBase = {
+    padding: '10px 15px',
+    fontSize: '14px',
+    border: '2px solid #333',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    transition: 'all 0.3s',
+  }
+
+  const getDifficultyButtonStyle = (level: Difficulty) => ({
+    ...buttonBase,
+    backgroundColor: difficulty === level ? '#4CAF50' : '#ddd',
+    color: difficulty === level ? 'white' : 'black',
+  })
+
   return (
     <div style={gameStyle}>
+      <div style={difficultyStyle}>
+        <button
+          style={getDifficultyButtonStyle('easy')}
+          onClick={() => setDifficulty('easy')}
+        >
+          Easy
+        </button>
+        <button
+          style={getDifficultyButtonStyle('medium')}
+          onClick={() => setDifficulty('medium')}
+        >
+          Medium
+        </button>
+        <button
+          style={getDifficultyButtonStyle('hard')}
+          onClick={() => setDifficulty('hard')}
+        >
+          Hard
+        </button>
+        <button
+          style={getDifficultyButtonStyle('expert')}
+          onClick={() => setDifficulty('expert')}
+        >
+          Expert
+        </button>
+      </div>
+
       <Flag flagCode={flagCode} flagCountryName={flagCountryName} />
       <Score score={score} countAttempts={countAttempts} />
-      <GuessForm handleCountryName={handleScore} />
+
+      {difficulty === 'expert' ? (
+        <GuessForm handleCountryName={handleScore} />
+      ) : (
+        <MultipleChoiceButtons
+          correctCountry={flagCountryName}
+          onAnswer={handleScore}
+          numOptions={getNumOptions()}
+        />
+      )}
     </div>
   )
 }
