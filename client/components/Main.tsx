@@ -1,10 +1,10 @@
-import { ReactEventHandler, useState } from 'react'
+import { useState } from 'react'
 import Game from './Game'
 
 function Main() {
   const [showGame, setShowGame] = useState(false) // State to manage Game component visibility
 
-  const handleShowGame = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleShowGame = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     setShowGame(!showGame) // Toggle the visibility of the Game component
   }

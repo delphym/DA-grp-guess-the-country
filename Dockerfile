@@ -1,4 +1,4 @@
-FROM node:20-alpine as BUILDER
+FROM node:24-alpine AS BUILDER
 WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]

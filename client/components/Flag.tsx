@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-import data from '../../data/countries.ts'
-
 interface Props {
   flagCode: string
   flagCountryName: string

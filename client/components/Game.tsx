@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 import GuessForm from './GuessForm'
 import Flag from './Flag'
@@ -21,10 +21,20 @@ function Game() {
   const [score, setScore] = useState([0, 0])
   const [countAttempts, setCountAttempts] = useState(0)
 
+  const refreshFlag = useCallback(() => {
+    const max = data.length - 1
+    const rindx = Math.floor(Math.random() * max)
+    const newCcode = data[rindx].code
+    const newCname = data[rindx].name
+    setFlagCode(newCcode)
+    setFlagCountryName(newCname)
+  }, [])
+
   // Initialize the first flag
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     refreshFlag()
-  }, [])
+  }, [refreshFlag])
 
   // const handleFlag = (cc: string, cn: string) => {
   //   setFlagCode(cc)
@@ -52,15 +62,6 @@ function Game() {
 
     setCountAttempts(countAttempts + 1)
     refreshFlag()
-  }
-
-  const refreshFlag = () => {
-    const max = data.length - 1
-    const rindx = Math.floor(Math.random() * max)
-    const newCcode = data[rindx].code
-    const newCname = data[rindx].name
-    setFlagCode(newCcode)
-    setFlagCountryName(newCname)
   }
 
   console.log('score:', score)
