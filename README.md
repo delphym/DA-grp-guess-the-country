@@ -4,7 +4,6 @@
 
 - react
 - react-router-dom
-- express
 - vite
 - vitest
 - eslint
@@ -24,3 +23,6 @@
 ## Deployment
 - the apps is now hosted @ Vercel platform
 - the app should live now @ [delphym-da-guess-country.vercel.app/](https://delphym-da-guess-country.vercel.app/)
+
+---
+Based on the **React boilerplate** by *Dev Academy Aotearoa*.
