@@ -120,15 +120,67 @@ li {
   background-color: #733131;
 }
 
-/* .score {
-  font-size: 0px;
-} */
-/* .game-container {
-  background-color: #f0f0f0;
-  padding: 20px;
-  border: 1px solid #ccc;
-} */
+/* Game components styling */
+.flag-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-/* .guess-form {
-  margin-top: 10px;
-} */
+.flag-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.score-display {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.multiple-choice-buttons {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.multiple-choice-buttons.easy {
+  grid-template-columns: 1fr;
+  max-width: 300px;
+}
+
+.multiple-choice-buttons.medium {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 400px;
+}
+
+.multiple-choice-buttons.hard {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 600px;
+}
+
+.multiple-choice-buttons button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.multiple-choice-buttons button:hover {
+  background-color: #45a049;
+}
+
+.multiple-choice-buttons button:active {
+  background-color: #3d8b40;
+}

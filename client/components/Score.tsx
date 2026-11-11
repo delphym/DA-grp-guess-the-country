@@ -10,16 +10,8 @@ interface Props {
 function Score({ score, countAttempts }: Props) {
   console.log('- score:', score[0], score[1])
 
-  const containerStyle = {
-    textAlign: 'center' as const,
-    margin: '15px 0',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    color: '#333',
-  }
-
   return (
-    <div style={containerStyle}>
+    <div className="score-display">
       <p>
         Score {'#' + countAttempts} {'=>'} &nbsp;&nbsp; correct: {score[0]}
         &nbsp; vs.&nbsp; wrong: {score[1]}
