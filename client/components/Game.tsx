@@ -9,15 +9,6 @@ import data from '../../data/countries'
 type Difficulty = 'easy' | 'medium' | 'hard' | 'expert'
 
 function Game() {
-  const gameStyle = {
-    backgroundColor: 'rgb(130 190 220)', //'#f0f0f0',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '10px',
-    width: '600px',
-    margin: '20px auto',
-  }
-
   const [difficulty, setDifficulty] = useState<Difficulty>('easy')
   const [flagCode, setFlagCode] = useState('')
   const [flagCountryName, setFlagCountryName] = useState('')
@@ -73,19 +64,21 @@ function Game() {
 
   const difficultyStyle = {
     display: 'flex',
-    gap: '10px',
+    gap: '0.625rem',
     justifyContent: 'center',
-    marginBottom: '20px',
+    marginBottom: '1.25rem',
+    flexWrap: 'wrap' as const,
   }
 
   const buttonBase = {
-    padding: '10px 15px',
-    fontSize: '14px',
+    padding: '0.625rem 0.9375rem',
+    fontSize: '0.875rem',
     border: '2px solid #333',
     borderRadius: '5px',
     cursor: 'pointer',
-    fontWeight: 'bold',
+    fontWeight: 'bold' as const,
     transition: 'all 0.3s',
+    minHeight: '44px',
   }
 
   const getDifficultyButtonStyle = (level: Difficulty) => ({
@@ -95,7 +88,7 @@ function Game() {
   })
 
   return (
-    <div style={gameStyle}>
+    <div className="game-container">
       <div style={difficultyStyle}>
         <button
           style={getDifficultyButtonStyle('easy')}
