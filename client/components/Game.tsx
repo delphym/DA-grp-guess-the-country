@@ -62,54 +62,29 @@ function Game() {
     }
   }
 
-  const difficultyStyle = {
-    display: 'flex',
-    gap: '0.625rem',
-    justifyContent: 'center',
-    marginBottom: '1.25rem',
-    flexWrap: 'wrap' as const,
-  }
-
-  const buttonBase = {
-    padding: '0.625rem 0.9375rem',
-    fontSize: '0.875rem',
-    border: '2px solid #333',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontWeight: 'bold' as const,
-    transition: 'all 0.3s',
-    minHeight: '44px',
-  }
-
-  const getDifficultyButtonStyle = (level: Difficulty) => ({
-    ...buttonBase,
-    backgroundColor: difficulty === level ? '#4CAF50' : '#ddd',
-    color: difficulty === level ? 'white' : 'black',
-  })
-
   return (
     <div className="game-container">
-      <div style={difficultyStyle}>
+      <div className="difficulty-selector">
         <button
-          style={getDifficultyButtonStyle('easy')}
+          className={`difficulty-button ${difficulty === 'easy' ? 'active' : ''}`}
           onClick={() => setDifficulty('easy')}
         >
           Easy
         </button>
         <button
-          style={getDifficultyButtonStyle('medium')}
+          className={`difficulty-button ${difficulty === 'medium' ? 'active' : ''}`}
           onClick={() => setDifficulty('medium')}
         >
           Medium
         </button>
         <button
-          style={getDifficultyButtonStyle('hard')}
+          className={`difficulty-button ${difficulty === 'hard' ? 'active' : ''}`}
           onClick={() => setDifficulty('hard')}
         >
           Hard
         </button>
         <button
-          style={getDifficultyButtonStyle('expert')}
+          className={`difficulty-button ${difficulty === 'expert' ? 'active' : ''}`}
           onClick={() => setDifficulty('expert')}
         >
           Expert

@@ -11,7 +11,7 @@ function Footer() {
       <span>
         This game is proudly <b>Brought to You by The-A-Team</b>!
       </span>
-      <div style={{ display: 'flex' }}>
+      <div className="footer-team-container">
         <button onClick={handleShowImg}>
           {showImg ? 'Hide Img' : 'The A Team'}
         </button>

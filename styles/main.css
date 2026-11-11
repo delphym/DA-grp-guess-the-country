@@ -126,6 +126,13 @@ footer p {
   word-break: break-word;
 }
 
+.footer-team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 img {
   max-height: 200px;
 }
@@ -339,6 +346,47 @@ li {
 
 .multiple-choice-buttons button:active {
   background-color: #3d8b40;
+}
+
+/* Difficulty selector styling */
+.difficulty-selector {
+  display: flex;
+  gap: 0.625rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.difficulty-button {
+  padding: 0.625rem 0.9375rem;
+  font-size: 0.875rem;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  min-height: 44px;
+  background-color: #ddd;
+  color: black;
+}
+
+.difficulty-button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.difficulty-button:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 480px) {
+  .difficulty-selector {
+    gap: 0.75rem;
+  }
+
+  .difficulty-button {
+    font-size: 0.9375rem;
+  }
 }
 
 /* Tablet breakpoint */
