@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" role="img" aria-labelledby="title desc">
+<title id="title">Guess the Country logo</title><desc id="desc">Globe with a flag and question mark, and the game name.</desc>
+<defs><linearGradient id="planet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#28AFB0"/><stop offset="1" stop-color="#19647E"/></linearGradient><linearGradient id="flag" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4EBD9"/><stop offset="1" stop-color="#EAF0CE"/></linearGradient><clipPath id="globeclip"><circle cx="117" cy="120" r="78"/></clipPath></defs>
+<circle cx="117" cy="120" r="91" fill="#643173"/>
+<circle cx="117" cy="120" r="78" fill="url(#planet)" stroke="#F4EBD9" stroke-width="5"/>
+<g clip-path="url(#globeclip)" fill="none" stroke="#EAF0CE" opacity=".56" stroke-width="3"><ellipse cx="117" cy="120" rx="37" ry="78"/><ellipse cx="117" cy="120" rx="68" ry="78"/><path d="M39 120H195M52 82Q117 104 182 82M52 158Q117 136 182 158"/></g>
+<g transform="translate(138 28) rotate(9)"><path d="M0 4V103" stroke="#F4EBD9" stroke-width="8" stroke-linecap="round"/><path d="M5 9Q35 -5 64 12T119 12V73Q90 57 63 69T5 71Z" fill="url(#flag)" stroke="#643173" stroke-width="5" stroke-linejoin="round"/><path d="M5 12Q34 0 64 16T119 16V42Q90 28 63 41T5 42Z" fill="#28AFB0"/><text x="56" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="51" fill="#643173">?</text></g>
+<text x="244" y="109" font-family="Arial,Helvetica,sans-serif" font-size="64" letter-spacing="-2" font-weight="800" fill="#F4EBD9">GUESS THE</text>
+<text x="242" y="181" font-family="Arial,Helvetica,sans-serif" font-size="78" letter-spacing="-3" font-weight="900" fill="#28AFB0">COUNTRY</text>
+<path d="M246 200H747" stroke="#EAF0CE" stroke-width="5" stroke-linecap="round" opacity=".8"/><circle cx="765" cy="200" r="6" fill="#F4EBD9"/>
+</svg>
